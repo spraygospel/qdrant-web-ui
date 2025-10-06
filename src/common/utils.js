@@ -1,7 +1,13 @@
 export const getBaseURL = function () {
+  // Use Vite's BASE_URL from build config (e.g., /qdrant/)
+  // This is set in vite.config.js and injected at build time
+  const baseUrl = import.meta.env.BASE_URL || '/';
+
   const url = new URL(window.location.href);
-  const pathname = url.pathname.replace(/dashboard$/, '');
-  return new URL(pathname, url.href).href;
+  const origin = url.origin;
+
+  // Return origin + base path (e.g., https://app-qa.wingssurya.com/qdrant/)
+  return origin + baseUrl;
 };
 
 export const pumpFile = function (reader, callback, chunks = []) {

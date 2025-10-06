@@ -9,7 +9,7 @@ export default defineConfig(async () => {
   const mdx = await import('@mdx-js/rollup');
 
   return {
-    base: '/qdrant-web-ui/',
+    base: '/qdrant/',
     // This changes the output dir from dist to build
     // comment this out if that isn't relevant for your project
     build: {
